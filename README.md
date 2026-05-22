@@ -23,6 +23,7 @@ Silentium is an Easy Linux machine that requires exploiting multiple vulnerabili
 ### Nmap Scan
 
 ```bash
+
 nmap -sC -sV -p- --min-rate 5000 <TARGET_IP> -oN nmap.txt
 
 Open Ports: 22 (SSH), 80 (HTTP)
